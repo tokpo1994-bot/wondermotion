@@ -12,26 +12,24 @@
  <section id="intro" class="screen">
   <div class="eyebrow">YOUR VOICE, YOUR NEXT TRACK.</div><h1>내 목소리,<br>지금 어디쯤?</h1><p class="lead">잘하고 싶은 한 소절부터<br>나에게 맞는 수업 간격까지.</p><p class="muted">약 6분 · 결과 바로 확인</p>
   <div class="card preview"><span class="tag">예시 · 실제 결과는 답변에 따라 달라져요</span><h3>후렴의 흔들림을,<br>다음 수업의 출발점으로.</h3><div class="wave" aria-hidden="true"><i style="--h:18%"></i><i style="--h:35%"></i><i style="--h:60%"></i><i style="--h:40%"></i><i style="--h:85%"></i><i style="--h:100%"></i><i style="--h:65%"></i><i style="--h:42%"></i><i style="--h:75%"></i><i style="--h:50%"></i><i style="--h:30%"></i><i style="--h:15%"></i></div><small>01 나의 수업 간격　02 피드백 기회 비교<br>03 첫 수업 플랜　04 목 관리 포인트</small></div>
-  <button class="primary wide" id="start" type="button">내 보이스 플랜 만들기 →</button><p class="privacy">답변은 이 화면에서 계산돼요. 마지막에 '원더모션에 보내기'를 눌러야만, 동의한 내용이 원더모션에 저장돼요. 브라우저에 답변을 저장하지 않으며, 새로고침하면 사라져요.</p><small>지금 최고음을 내보거나 목을 시험하지 마세요. 평소 경험으로 답해 주세요. 의료 진단이나 치료를 대신하지 않아요.</small>
+  <div class="card"><label class="consent"><input id="consent-all" type="checkbox">전체 동의</label><label class="consent"><input id="B2" type="checkbox">[필수] 개인정보 수집·이용 동의</label><details class="consent-copy"><summary>보기</summary><p>원더모션이 이름·연락처·연령대·성별·직업·경로·수강 경험·목표·추천 등을 신청자 확인 및 수업 상담 목적으로 수집·이용하여 원더모션 관리 설문지에 저장하고 90일 후 파기합니다. 문의·철회: 010-5439-3331. 동의를 거부할 수 있으며 거부 시 시작할 수 없습니다.</p></details><label class="consent"><input id="B3" type="checkbox">[필수] 건강정보(민감정보) 수집·이용 동의</label><details class="consent-copy"><summary>보기</summary><p>원더모션이 질환·증상·수술·생활습관 및 건강 관련 응답을 수업 강도 검토 목적으로 수집·이용하여 원더모션 관리 설문지에 저장하고 90일 후 파기합니다. 문의·철회: 010-5439-3331. 동의를 거부할 수 있으며 거부 시 시작할 수 없습니다.</p></details></div><button disabled class="primary wide" id="start" type="button">내 보이스 플랜 만들기 →</button><p class="privacy">동의 후 시작하면, 결과가 원더모션에 자동으로 전달돼요.</p><small>지금 최고음을 내보거나 목을 시험하지 마세요. 평소 경험으로 답해 주세요. 의료 진단이나 치료를 대신하지 않아요.</small>
  </section>
  <section id="survey" hidden><nav aria-label="문진 진행"><ol class="notes" id="notes"></ol></nav><div id="steps"></div><div class="nav"><button type="button" id="back" class="secondary">이전</button><button type="button" id="next" class="primary">다음 →</button></div></section>
  <section id="result" class="screen" hidden aria-label="보이스 플랜 결과">
-  <div class="eyebrow">높은 도 · YOUR VOICE PLAN</div><h1 id="result-name" class="result-title" tabindex="-1"></h1><p id="result-goal" class="lead"></p>
-  <div id="medical" class="card danger" hidden><h3>발성 연습보다 진료가 먼저예요</h3><p id="medical-text"></p><p>의료진이 허용하는 범위를 확인한 뒤 횟수·시간을 함께 정해요.</p></div>
-  <div id="frequency" class="card frequency"><div class="eyebrow">RECOMMENDED RHYTHM</div><p id="frequency-number" class="big"></p><p id="frequency-sub"></p><ul id="reasons" class="reasons"></ul><div id="alternative" class="notice" hidden>함께 비교해 보세요<br><strong>주 2회 ↔ 주 1회 + 연습실 이용</strong><small>연습실 이용 조건과 1회 시간은 상담에서 정해요.</small></div><p class="result-note">주 1회로도 시작할 수 있어요. 목표 분량·시기를 맞춰 드려요.</p></div>
+  <div class="eyebrow">높은 도 · YOUR VOICE PLAN</div><h1 id="result-name" class="result-title" tabindex="-1"></h1>
+  <div id="frequency" class="card frequency"><div class="eyebrow">RECOMMENDED RHYTHM</div><h2 id="frequency-number" class="result-title"></h2><p id="medical-text" class="error" hidden></p><a id="booking-link" class="primary booking-btn wide" href="#" target="_blank" rel="noopener">네이버 예약으로 상담 잡기 →</a><ul id="reasons" class="reasons"></ul><small role="status"><span id="submit-message"></span> <button id="retry" type="button" class="secondary" hidden>다시 보내기</button></small></div><p id="result-goal" class="lead"></p>
   <div id="feedback" class="card"><h3>선생님이 들어주는 기회</h3><p id="feedback-caption"></p><div id="bars"></div><small>횟수가 늘수록 수정할 기회가 많아져요. 주당 횟수 × 남은 주의 단순 비교이며, 실제 일정·휴일·출석에 따라 달라져요. 완성 속도를 보장하지 않아요.</small></div>
   <div class="card" id="composition"><h3>같은 목표, 다른 수업 리듬</h3><p id="composition-note" class="muted" hidden>진료 확인 뒤 상담할 수 있는 일반 구성 예시예요.</p><div class="composition"><b>주 1회</b><span>레슨 + 집에서 할 과제</span></div><div class="composition"><b>주 2회</b><span>1회차 기술 익히기 →<br>2회차 곡에 적용·바로 수정</span></div><div class="composition"><b>주 3회</b><span>기술 → 적용 → 리허설<br>(실전처럼 한 곡 통으로)</span></div></div>
   <div class="card"><div class="eyebrow">FIRST SESSION / TAKE 01</div><h2>첫 수업의 설계도</h2><div class="plan-line"><small>목표 구간</small><p id="plan-target"></p></div><div class="plan-line"><small>첫 수업에서 확인할 것</small><p id="plan-check"></p></div><div class="plan-line"><small>2주 뒤, 같은 조건으로</small><p id="plan-compare"></p></div></div>
   <div class="card"><h3>확인할 관리 포인트</h3><div id="points" class="chips"></div><p id="points-note" class="muted"></p><small>답변에서 고른 상담 항목이에요. 건강 수준이나 진단을 뜻하지 않아요. 수분 제한 등 의료진 안내가 있으면 그 안내를 따라 주세요.</small></div>
   <details class="card"><summary>선생님께 보여주세요 · 답변 요약</summary><h3>상담 핵심</h3><div id="summary-status" class="notice"></div><table><caption class="muted">이 화면에서만 보이는 전체 답변</caption><tbody id="summary-rows"></tbody></table></details>
-  <div id="share" class="card"><h3>원더모션에 결과 보내기</h3><p class="muted">'원더모션에 보내기'를 누르면 동의한 내용이 원더모션 관리 시트에 저장돼요. 또는 동의한 요약을 복사한 뒤 카카오톡에서 <b>원더모션마산</b>을 찾아 붙여넣어 주세요. 복사만으로 전송되지는 않아요.</p><p class="consent-copy">수집·이용 주체: 원더모션<br>상담 카톡: 원더모션마산 · 문의·동의 철회: 010-5439-3331</p><label class="consent" for="B2"><input type="checkbox" id="B2">일반 개인정보 수집·이용 동의</label><p class="consent-copy">목적: 신청자 확인 및 수업 상담.<br>항목: 이름·별칭, 연락처, 연령대, 성별, 직업, 알게 된 경로, 수강 경험, 원하는 수업 방식, 목표·세부 목표·목표 구간, 현재·원하는 단계, 목표일, 연습 여건, 상담용 추천(건강정보 동의 여부에 따라 조정).<br>보유: 원더모션 관리 시트에 저장된 날부터 90일 후 파기. 철회 또는 목적 달성 시 지체 없이 파기.<br>거부할 수 있어요. 미동의 시 전송·복사 기능을 이용할 수 없으며 화면 확인·현장 상담은 가능해요.</p><label class="consent" for="B3"><input type="checkbox" id="B3">건강정보(민감정보) 수집·이용 동의</label><p class="consent-copy">목적: 목 상태에 맞는 수업 강도 검토 및 진료 우선 상담.<br>항목: 관리 포인트, 질환별 진단 시기·치료·현재 상태, 증상·기간, 수술 이력·의료진 안내·위험 신호 및 이를 반영한 추천, 목표 메모에 적은 건강정보.<br>보유: 원더모션 관리 시트에 저장된 날부터 90일 후 파기. 철회 또는 목적 달성 시 지체 없이 파기.<br>거부할 수 있어요. 미동의 시 건강 항목·자유 메모·건강을 반영한 추천은 전송·복사하지 않으며 일반 상담은 가능해요.</p><button type="button" id="submit" class="primary wide" hidden>원더모션에 보내기</button><p id="submit-help" class="muted" hidden>보내려면 일반 개인정보 동의가 필요해요</p><p id="submit-status" role="status"></p><button type="button" id="copy" class="secondary" style="min-height:40px;padding:8px 12px;font-size:13px">동의한 요약 복사하기</button><p id="copy-status" role="status"></p><label for="copy-fallback" id="fallback-label" hidden>길게 눌러 복사해 주세요</label><textarea id="copy-fallback" class="text-input" rows="10" readonly hidden></textarea></div>
-  <div id="minor-share" class="notice" hidden>상담 때 보호자와 함께 이 화면을 보여주세요.</div><div id="booking" class="card" hidden><h3>바로 예약하기 <span class="muted">(선택)</span></h3><p class="muted">마음에 드셨다면 상담·첫 수업 날짜를 네이버 예약으로 바로 잡을 수 있어요. 예약하지 않아도 결과는 그대로 볼 수 있어요.</p><a id="booking-link" class="primary booking-btn" href="#" target="_blank" rel="noopener">네이버 예약으로 상담 잡기 →</a></div><div class="nav"><button type="button" id="edit" class="secondary">답변 수정</button><button type="button" id="restart" class="primary">처음부터 다시</button></div><p class="footer">WONDERMOTION · 작은 변화도, 같은 구간에서 듣다.</p>
+  <div class="nav"><button type="button" id="edit" class="secondary">답변 수정</button><button type="button" id="restart" class="primary">처음부터 다시</button></div><p class="footer">WONDERMOTION · 작은 변화도, 같은 구간에서 듣다.</p>
  </section>
 </main>
 <script>
 'use strict';
 const SUBMIT_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSf75vgsobg7Y63eCqEUdS4yRc8_kMRh7GqB4K_nMzZYOmb2qQ/formResponse';
-const FORM_FIELDS = {name:'573611051', phone:'1906357169', rec:'2006950701', full:'1135712846'};
+const FORM_MAP = {'이름':'573611051','연락처':'1906357169','추천':'2006950701','결과 전체':'1135712846'};
 const BOOKING_URL = 'https://m.booking.naver.com/booking/13/bizes/939710/items/5176869?lang=ko&theme=place';
 const DISEASES=['성대결절','성대폴립','성대낭종','라인케부종','성대구증','후두육아종','성대 출혈','인후두 역류(LPR)·역류성 후두염 진단 이력','근긴장성 발성장애','성대마비','갑상선·목 수술 후 음성 변화 이력','기타·병명 모름'];
 const GOALS=[
@@ -134,7 +132,7 @@ function changeChoice(x,n,input){
   answers[x.id]=vals;
  }else answers[x.id]=n;
  if(x.id==='G1'){delete answers.G2;const g=Q.find(z=>z.id==='G2');g.options=[...GOALS[n][1],'아직 모르겠어요·상담에서 정할게요'];$('q-G2').replaceWith(makeQuestion(g));}
- if(x.id==='B1')delete answers.P4;
+ if(x.id==='B1'){delete answers.P4;$('guardian-consent').checked=false;}
  normalize(answers);sync();
 }
 function sync(){
@@ -150,46 +148,45 @@ function mount(){
   Q.filter(x=>x.step===s).forEach(x=>{
    if(/^H[345]_/.test(x.id)){const d=x.id.slice(3);let card=sec.querySelector('#disease-'+d);if(!card){card=el('div',undefined,'disease');card.id='disease-'+d;card.append(el('h3',DISEASES[Number(d.slice(1))-1]));sec.append(card);}card.append(makeQuestion(x));}
    else sec.append(makeQuestion(x));
-   if(x.id==='B1'){const notice=el('p','보호자와 함께 작성해 주세요. 결과는 상담 때 함께 보여주실 수 있어요.','notice');notice.id='guardian';notice.hidden=true;sec.append(notice);}
+   if(x.id==='B1'){const notice=el('label',undefined,'consent notice');notice.id='guardian';notice.hidden=true;const check=el('input');check.type='checkbox';check.id='guardian-consent';notice.append(check,document.createTextNode('[필수] 보호자가 함께 확인하고 동의했어요'));sec.append(notice);}
    if(x.id==='H9'){const notice=el('div','','notice danger');notice.id='risk-live';notice.hidden=true;notice.setAttribute('role','alert');sec.append(notice);}
   });$('steps').append(sec);
  }sync();
 }
 function showStep(s){step=s;$('intro').hidden=s!==0;$('survey').hidden=s===0;$('result').hidden=true;for(let i=1;i<=7;i++){ $('step-'+i).hidden=i!==s;$('note-'+i).className=i===s?'active':i<s?'done':'';if(i===s)$('note-'+i).setAttribute('aria-current','step');else $('note-'+i).removeAttribute('aria-current');}$('next').textContent=s===7?'내 보이스 플랜 보기 →':'다음 →';sync();if(s) $('heading-'+s).focus();else $('start').focus();}
 function validate(s){let first=null;for(const x of Q.filter(x=>x.step===s&&visible(x,answers))){clearError(x.id);const v=answers[x.id];let error='';if(!x.optional&&(v===undefined||v===''||(Array.isArray(v)&&!v.length)))error='이 항목을 골라 주세요. 모르겠어요도 괜찮아요.';if(x.id==='P1'&&(!v||v.trim().length<2))error='이름이나 별칭을 2자 이상 적어 주세요.';if(x.id==='P2'&&!/^01[016789]\d{7,8}$/.test((v||'').replace(/[\s-]/g,'')))error='휴대폰 번호 10~11자리를 확인해 주세요.';if(x.id==='P4'&&v!==undefined&&((answers.B1===1)!==(v<=1)))error='앞에서 고른 만 14세 이상·미만과 연령대를 맞춰 주세요.';if(x.id==='G5_date'&&(!Number.isFinite(dayNumber(v))||dayNumber(v)<dayNumber(todayISO())))error='오늘 또는 이후 날짜로 수정해 주세요.';if(error){setError(x.id,error);if(!first)first=x.id;}}
+ if(s===1&&answers.B1===1&&!$('guardian-consent').checked){$('guardian-consent').focus();return false;}
  if(first){$('q-'+first).querySelector('input')?.focus();return false;}return true;
 }
 function answerLabel(x,a=answers){const v=a[x.id];if(v===undefined||v===''||(Array.isArray(v)&&!v.length))return '미응답';return x.options.length?(Array.isArray(v)?v.map(n=>choiceValue(x,n)).join(' / '):x.options[v]):String(v);}
 function fillResult(){
  lastResult=calculate(answers,todayISO());const r=lastResult,g=GOALS[answers.G1],target=answers.G2a?.trim()||g[1][answers.G2]||'상담에서 목표 구간 정하기';
  $('result-name').textContent=answers.P1.trim()+'님의\n보이스 플랜';$('result-goal').textContent=g[0]+' · '+(g[1][answers.G2]||'상담에서 정할게요');
- $('medical').hidden=!r.hold.length;$('medical-text').textContent=(r.urgent?'지금 숨쉬기 어렵다면 119 등 즉시 의료 도움을 요청하고 주변 사람에게 알려 주세요. ':r.hold.length?'무리한 발성보다 이비인후과 확인을 먼저 권해 드려요. ':'')+r.hold.join(' · ');
- $('frequency').hidden=r.f===null;$('feedback').hidden=r.f===null;$('composition-note').hidden=r.f!==null;
- $('frequency-number').textContent=r.f===null?'':'주 '+r.f+'회';$('frequency-sub').textContent=r.f===3?'실전 준비를 나눠 보는 후보예요. 출석·회복 여건을 상담에서 확인해요.':r.f===2?'기술을 익히고, 곡에 적용해 바로 수정해요.':'한 가지 변화를 익히고, 집에서 이어가요.';
- $('reasons').replaceChildren(...r.reasons.map(t=>el('li',t)));$('alternative').hidden=!r.alternative;
- $('bars').replaceChildren();if(r.counts){$('feedback-caption').textContent=(answers.G5===0?'목표일까지 '+r.weeks+'주.':'첫 4주 동안.')+' 주 1회면 선생님 피드백 '+r.counts[0]+'번, 주 2회면 '+r.counts[1]+'번이에요.';r.counts.forEach((n,i)=>{const row=el('div',undefined,'bar-row');const track=el('div',undefined,'track'),bar=el('div',undefined,'bar'+(r.f===i+1?' selected':''));bar.style.width=(r.weeks===0?0:(i+1)/3*100)+'%';track.append(bar);row.append(el('span','주 '+(i+1)+'회'),track,el('b',n+'회'));if(r.f===i+1)row.setAttribute('aria-label','추천 주 '+(i+1)+'회, 피드백 '+n+'회');$('bars').append(row);});}
+ const displayed=r.f===3?3:2;
+ $('frequency-number').textContent='주 '+displayed+'회가 적당해요';
+ $('medical-text').hidden=!r.hold.length;$('medical-text').textContent='수업 전 이비인후과 진료로 목 상태를 먼저 확인해 주세요.'+(r.urgent?' 지금 숨쉬기 어렵다면 119 등 즉시 의료 지원을 요청하고 주변 사람에게 알려 주세요.':'');
+ $('feedback').hidden=false;$('composition-note').hidden=r.f!==null;
+ $('reasons').replaceChildren(...displayReasons(r).map(t=>el('li',t)));
+ const weeks=Number.isFinite(r.weeks)?r.weeks:4,counts=[weeks,weeks*2,weeks*3];
+ $('feedback-caption').textContent=weeks+'주 동안 수업 횟수별 피드백 기회를 비교해 보세요.';
+ $('bars').replaceChildren();counts.forEach((n,i)=>{const row=el('div',undefined,'bar-row'),track=el('div',undefined,'track'),bar=el('div',undefined,'bar'+(displayed===i+1?' selected':''));bar.style.width=((i+1)/3*100)+'%';track.append(bar);row.append(el('span','주 '+(i+1)+'회'),track,el('b',n+'번'));if(displayed===i+1)row.setAttribute('aria-label','추천 주 '+displayed+'회, 피드백 '+n+'번');$('bars').append(row);});
  $('plan-target').textContent=target;$('plan-check').textContent=r.f===null?'의료진 안내와 허용 범위를 먼저 확인해요. 이후 '+(g[2][answers.G2]||g[3]):g[2][answers.G2]||g[3];$('plan-compare').textContent=(r.f===null?'의료진이 허용한 뒤 수업을 시작한 날부터 ':'')+(answers.G1===5?'2주 뒤, 같은 문장·같은 높이·같은 구간을 녹음해 비교해요. ':'2주 뒤, 같은 곡·같은 키·같은 구간을 녹음해 비교해요. ')+(['음정·박자','곡의 흐름·진입','완주 흐름·표현','음정·박자·표현','편안함·힘주는 순간','문장 전달·속도'][answers.G1])+' 중 하나와 불편·피로를 함께 살펴요.';
  $('points').replaceChildren(...r.points.map(t=>el('span',t,'chip')));$('points-note').textContent=r.points.length?'함께 살펴볼 항목부터 하나씩 정리해요.':'답변에서 두드러진 관리 포인트는 없어요. 불편이 생기면 강도를 먼저 조절해요.';
  $('summary-status').replaceChildren(...['추천: '+recommendation(r),'목표: '+goalText(answers)+' / '+stageText(answers)+' / 목표일: '+deadlineText(answers,r),'주의할 점: '+(r.points.join(', ')||'두드러진 관리 포인트 없음')+' / '+(r.hold.length?'진료 확인 먼저 — '+r.hold.join(', '):'진료 우선 신호 응답 없음')].map(t=>el('p',t)));
  $('summary-rows').replaceChildren();Q.filter(x=>visible(x,answers)||(x.id==='H8'&&answers.H8===0)).forEach(x=>{const tr=el('tr');tr.append(el('th',shortLabel(x)),el('td',answerLabel(x)));$('summary-rows').append(tr);});
- $('share').hidden=answers.B1===1;$('minor-share').hidden=answers.B1!==1;resetConsent();$('booking').hidden=!BOOKING_URL;if(BOOKING_URL)$('booking-link').href=BOOKING_URL;$('survey').hidden=true;$('intro').hidden=true;$('result').hidden=false;$('result-name').focus();
+ $('booking-link').href=BOOKING_URL;$('survey').hidden=true;$('intro').hidden=true;$('result').hidden=false;$('result-name').focus();sendResult();
 }
-function updateSubmit(){
- const enabled=Boolean(SUBMIT_URL)&&answers.B1!==1;
- $('submit').hidden=!enabled;
- $('submit').disabled=!$('B2').checked||submitState==='sending'||submitState==='sent';
- $('submit').textContent=submitState==='sending'?'보내는 중…':submitState==='sent'?'보냄 ✓':'원더모션에 보내기';
- $('submit-help').hidden=!enabled||$('B2').checked||submitState==='sent';
-}
-function resetConsent(){submitVersion++;submitState='idle';$('submit-status').textContent='';$('B2').checked=false;$('B3').checked=false;clearCopy();updateSubmit();}
-function clearCopy(){$('copy-fallback').value='';$('copy-fallback').hidden=true;$('fallback-label').hidden=true;$('copy-status').textContent='';}
+function displayReasons(r){return (r.f===null?['한 번에 길게보다 짧게 자주 피드백을 받아요.','목표까지 피드백 간격을 일정하게 유지해요.']:r.reasons).slice(0,2);}
+function updateConsent(){const all=$('B2').checked&&$('B3').checked;$('start').disabled=!all;$('consent-all').checked=all;$('consent-all').indeterminate=!all&&($('B2').checked||$('B3').checked);}
+const submissions=new Map();
+function showSubmit(record){submitState=record.state;$('submit-message').textContent=record.state==='sending'?'원더모션에 전달 중…':record.state==='sent'?'원더모션에 전달됐어요. 곧 연락드릴게요.':'전달이 안 됐어요.';$('retry').hidden=record.state!=='failed';}
 const SHORT_LABELS={B1:'연령 확인',P1:'이름',P2:'연락처',P3:'성별',P4:'연령대',P5:'직업',P6:'하루 말 사용량',P7:'알게 된 경로',P8:'목소리 변화',E1:'수강 경험',E2:'수강 기간',E3:'수강 방식',E4:'중단 이유',E5:'원하는 수업 방식',H1:'진단 이력',H2:'진단명',H6:'최근 수술',H7:'최근 증상',H8:'증상 기간',H9:'위험 신호',H10:'의료진 안내',L1:'흡연',L2:'물',L3:'수면',L5:'야식·역류',G1:'목표',G2:'세부 목표',G2a:'목표 구간',G3:'현재 단계',G4:'원하는 단계',G5:'목표일 여부',G5_date:'목표일',R1:'주당 연습 시간',R2:'연습 장소',R3:'발성 습관'};
 function shortLabel(x){const m=/^H([345])_D(\d+)$/.exec(x.id);return m?DISEASES[Number(m[2])-1]+' · '+({'3':'진단 시기','4':'치료','5':'현재 상태'}[m[1]]):SHORT_LABELS[x.id];}
 function valueText(id,a){return answerLabel(Q.find(x=>x.id===id),a);}
 function goalText(a,health=true){const g=GOALS[a.G1];return (!health&&a.G1===4?'편안한 발성 배우기':g[0])+' · '+(g[1][a.G2]||'상담에서 정하기')+(health&&a.G2a?.trim()?' · ('+a.G2a.trim()+')':'');}
 function stageText(a){return (a.G3+1)+' → '+(a.G4+1);}
 function deadlineText(a,r){return a.G5===0?a.G5_date+' (약 '+r.weeks+'주 남음)':'정하지 않음';}
-function recommendation(r){return r.f===null?(r.hold.length?'진료 확인 먼저 — '+r.hold.join(', '):'목표일 확인 후 결정'):'주 '+r.f+'회 — '+r.reasons.map(s=>String(s).replace(/\.\s*$/,'')).join(' · ');}
+function recommendation(r){return '주 '+(r.f===3?3:2)+'회 — '+displayReasons(r).join(' · ');}
 function copyText(a,r,health){
  const lines=['[원더모션 보이스 체크]',
  '이름: '+a.P1.trim()+' / 연령대: '+valueText('P4',a)+' / 수강 경험: '+valueText('E1',a)+' / 원하는 수업 방식: '+valueText('E5',a),
@@ -211,36 +208,38 @@ function submitPayload(a,r,health){
  '수강경험':['E1','E2','E3','E4'].map(present).join(' / '),'원하는수업방식':label('E5'),
  '목표':!health&&a.G1===4?'편안한 발성 배우기':label('G1'),'세부목표':label('G2'),'목표구간':health?(a.G2a?.trim()||'미응답'):'건강정보 미포함',
  '현재→원하는단계':stageText(a),'목표일':deadlineText(a,r),
- '추천':health?(r.f===null?(r.hold.length?'진료 확인 먼저':'목표일 확인 후 결정'):'주 '+r.f+'회'):'상담에서 함께 결정',
- '추천이유':health?(r.hold.length?r.hold:r.reasons).join(' · '):'상담에서 함께 결정',
+ '추천':health?('주 '+(r.f===3?3:2)+'회'):'상담에서 함께 결정',
+ '추천이유':health?displayReasons(r).join(' · '):'상담에서 함께 결정',
  '판정':health?r.state:'건강정보 미동의','관리포인트':health?r.points.join(', '):'건강정보 미포함',
  '연습여건':['R1','R2','R3'].map(label).join(' / '),
  '질환이력':health?(diagnoses.join(' / ')||label('H1')):'','최근수술':health?label('H6'):'',
  '증상':health?(a.H7||[]).map(n=>Q.find(x=>x.id==='H7').options[n]+'('+label('H8')+')').join(' / '):'',
  '위험신호':health?label('H9'):'','의료진안내':health?present('H10'):'',
  '생활습관':health?['흡연: '+label('L1'),'물: '+label('L2'),'수면: '+label('L3'),'야식·역류: '+label('L5')].join(' / '):'',
- '건강정보동의':health?'동의':'미동의','동의문안':'v3'
+ '개인정보동의':'동의','보호자동의':a.B1===1?'동의':'해당 없음','건강정보동의':health?'동의':'미동의','동의문안':'v3'
  };
 }
-$('submit').addEventListener('click',async()=>{
- if(!SUBMIT_URL||answers.B1===1||!$('B2').checked||!lastResult||submitState!=='idle')return;
- const payload=submitPayload(answers,lastResult,$('B3').checked),version=submitVersion;
- submitState='sending';$('submit-status').textContent='';updateSubmit();
+async function sendResult(retry=false){
+ if(!lastResult||!$('B2').checked||!$('B3').checked||(answers.B1===1&&!$('guardian-consent').checked))return;
+ const key=JSON.stringify(answers),existing=submissions.get(key);
+ if(existing&&!(retry&&existing.state==='failed')){showSubmit(existing);return;}
+ const payload=submitPayload(answers,lastResult,true),record={state:'sending'};submissions.set(key,record);showSubmit(record);
  try{
- const fd=new URLSearchParams();const pv=k=>String(payload[k]??'').trim();fd.append('entry.'+FORM_FIELDS.name,pv('이름'));fd.append('entry.'+FORM_FIELDS.phone,pv('연락처'));fd.append('entry.'+FORM_FIELDS.rec,[pv('추천'),pv('판정'),[pv('목표'),pv('세부목표')].filter(Boolean).join(' · ')].filter(Boolean).join(' / '));fd.append('entry.'+FORM_FIELDS.full,Object.keys(payload).map(k=>pv(k)?k+': '+pv(k):'').filter(Boolean).join('\n'));
- await fetch(SUBMIT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:fd.toString()});
- if(version!==submitVersion)return;
- submitState='sent';$('submit-status').textContent='원더모션에 보냈어요. 곧 연락드릴게요.';
- }catch{
- if(version!==submitVersion)return;
- submitState='idle';$('submit-status').textContent='보내지 못했어요. 인터넷 연결을 확인하고 다시 눌러 주세요. 또는 요약을 복사해 카톡 원더모션마산에 보내 주세요.';
- }
- updateSubmit();
-});
+ const fd=new URLSearchParams();for(const [key,value] of Object.entries(payload)){if(FORM_MAP[key])fd.append('entry.'+FORM_MAP[key],String(value??''));}
+ if(FORM_MAP['결과 전체'])fd.set('entry.'+FORM_MAP['결과 전체'],Object.entries(payload).map(([k,v])=>k+': '+String(v??'')).join('\n'));
+ if(!SUBMIT_URL||!Array.from(fd.keys()).length)throw new Error('전송 항목 설정 필요');
+ await fetch(SUBMIT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:fd.toString()});record.state='sent';
+ }catch{record.state='failed';}
+ if(JSON.stringify(answers)===key&&!$('result').hidden)showSubmit(record);
+}
 mount();
-$('start').addEventListener('click',()=>showStep(1));$('back').addEventListener('click',()=>showStep(Math.max(0,step-1)));$('next').addEventListener('click',()=>{if(!validate(step))return;if(step<7)showStep(step+1);else{for(let s=1;s<=7;s++){if(!validate(s)){showStep(s);validate(s);return;}}fillResult();}});
-$('edit').addEventListener('click',()=>{resetConsent();showStep(7);});$('restart').addEventListener('click',()=>{answers={};lastResult=null;document.querySelectorAll('#steps input').forEach(i=>{i.value=['radio','checkbox'].includes(i.type)?i.value:'';i.checked=false;});Q.forEach(x=>clearError(x.id));resetConsent();$('summary-rows').replaceChildren();$('result-name').textContent='';$('plan-target').textContent='';showStep(0);});
-['B2','B3'].forEach(id=>$(id).addEventListener('change',()=>{clearCopy();updateSubmit();}));
-$('copy').addEventListener('click',async()=>{clearCopy();if(answers.B1===1)return;if(!$('B2').checked){$('copy-status').textContent='복사하려면 일반 개인정보 수집·이용 동의를 확인해 주세요.';$('B2').focus();return;}const text=copyText(answers,lastResult,$('B3').checked);try{await navigator.clipboard.writeText(text);$('copy-status').textContent='복사했어요. 카카오톡 원더모션마산에 붙여넣어 주세요.';}catch{if(!$('B2').checked||answers.B1===1)return;$('copy-fallback').value=copyText(answers,lastResult,$('B3').checked);$('copy-fallback').hidden=false;$('fallback-label').hidden=false;$('copy-status').textContent='길게 눌러 복사해 주세요';$('copy-fallback').focus();$('copy-fallback').select();$('copy-fallback').setSelectionRange(0,$('copy-fallback').value.length);}});
+$('start').addEventListener('click',()=>{if(!$('start').disabled)showStep(1);});
+$('back').addEventListener('click',()=>showStep(Math.max(0,step-1)));
+$('next').addEventListener('click',()=>{if(!validate(step))return;if(step<7)showStep(step+1);else{for(let s=1;s<=7;s++){if(!validate(s)){showStep(s);validate(s);return;}}fillResult();}});
+$('edit').addEventListener('click',()=>showStep(7));
+$('restart').addEventListener('click',()=>{answers={};lastResult=null;document.querySelectorAll('#steps input').forEach(i=>{i.value=['radio','checkbox'].includes(i.type)?i.value:'';i.checked=false;});Q.forEach(x=>clearError(x.id));['B2','B3','consent-all'].forEach(id=>$(id).checked=false);updateConsent();$('summary-rows').replaceChildren();$('result-name').textContent='';$('plan-target').textContent='';showStep(0);});
+$('consent-all').addEventListener('change',()=>{['B2','B3'].forEach(id=>$(id).checked=$('consent-all').checked);updateConsent();});
+['B2','B3'].forEach(id=>$(id).addEventListener('change',updateConsent));
+$('retry').addEventListener('click',()=>sendResult(true));updateConsent();
 </script>
 </body></html>
