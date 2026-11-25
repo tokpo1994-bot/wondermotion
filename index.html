@@ -1,0 +1,201 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>원더모션 보이스 체크</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--bg:#f1f4f9;--fg:#17243b;--surface:#ffffff;--soft:#e8edf5;--muted:#56657a;--line:#cbd4e2;--accent:#c84236;--accent-soft:#fff0ec;--on-accent:#ffffff;--good:#146b65;--good-soft:#e4f4ef;--warn:#805100;--warn-soft:#fff3d5;--danger:#a02237;--danger-soft:#ffe8ed;--shadow:0 16px 46px #17243b0c}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1423;--fg:#edf2fc;--surface:#152237;--soft:#202f46;--muted:#afbed3;--line:#3c4c63;--accent:#ff8b7c;--accent-soft:#402832;--on-accent:#24151b;--good:#7ed7c4;--good-soft:#193b3b;--warn:#f3ce7d;--warn-soft:#3d3424;--danger:#ffa6b5;--danger-soft:#482635;--shadow:0 16px 46px #00000026;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0c1423;--fg:#edf2fc;--surface:#152237;--soft:#202f46;--muted:#afbed3;--line:#3c4c63;--accent:#ff8b7c;--accent-soft:#402832;--on-accent:#24151b;--good:#7ed7c4;--good-soft:#193b3b;--warn:#f3ce7d;--warn-soft:#3d3424;--danger:#ffa6b5;--danger-soft:#482635;--shadow:0 16px 46px #00000026;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans KR',sans-serif;line-height:1.65}button,input,textarea{font:inherit}button{cursor:pointer}button,input,textarea,summary{touch-action:manipulation}button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:4px}[hidden]{display:none!important}.wrap{max-width:592px;margin:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px max(32px,env(safe-area-inset-bottom,0px));overflow-wrap:anywhere}header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:28px}.brand{font-size:12px;letter-spacing:.16em;font-weight:700}.mono,.eyebrow,.counter{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}.rec{color:var(--accent);font-size:12px;display:flex;align-items:center;gap:6px}.rec svg{width:9px;height:9px;fill:currentColor}.eyebrow{color:var(--accent);font-size:11px;letter-spacing:.12em}h1{font-family:'Black Han Sans','IBM Plex Sans KR',sans-serif;font-weight:400;font-size:clamp(36px,9vw,54px);line-height:1.2;letter-spacing:-.04em;margin:18px 0}h2{font-size:27px;line-height:1.4;letter-spacing:-.04em;margin:10px 0}h3{font-size:18px;margin:0 0 12px}p{margin:10px 0}.muted,small{color:var(--muted)}small{display:block;font-size:12px}.lead{font-size:17px}.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;margin-block:18px;box-shadow:var(--shadow)}.preview{position:relative;overflow:hidden;margin-block:30px}.preview:before{content:'';display:block;height:4px;background:var(--accent);position:absolute;inset:0 0 auto}.tag{display:inline-block;border-radius:6px;background:var(--soft);color:var(--muted);font-size:11px;padding:3px 8px;margin-bottom:12px}.wave{height:48px;display:flex;align-items:center;gap:5px;margin-block:14px}.wave i{flex:1;border-radius:3px;background:var(--accent);height:var(--h);opacity:.8}.primary,.secondary{min-height:50px;border-radius:12px;padding:12px 20px;font-weight:600;border:1px solid var(--line)}.primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}.secondary{background:var(--surface);color:var(--fg)}.wide{width:100%}.privacy{font-size:13px;color:var(--muted);margin:18px 4px}.notes{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;list-style:none;margin:0;padding:0}.notes li{border:1px solid var(--line);border-radius:5px 5px 9px 9px;background:var(--surface);text-align:center;padding:10px 0 7px;font-size:12px;color:var(--muted);border-bottom-width:4px}.notes li.done{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}.notes li.active{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}.step-top{margin:28px 0}.question{border:0;padding:0;margin:26px 0;min-width:0}.question legend,.question>.q-label{font-weight:600;font-size:16px;margin-bottom:12px;display:block;width:100%}.qid{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:10px;margin-right:8px}.options{display:flex;flex-wrap:wrap;gap:8px}.choice{position:relative;display:flex;max-width:100%}.choice input{position:absolute;opacity:0;width:1px;height:1px}.choice span{display:flex;align-items:center;min-height:46px;border:1px solid var(--line);padding:10px 13px;border-radius:12px;background:var(--surface);font-size:14px;line-height:1.5}.choice input:checked+span{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}.choice input:focus-visible+span{outline:3px solid var(--accent);outline-offset:3px}.text-input{width:100%;min-width:0;min-height:48px;border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--surface);color:var(--fg)}.error{font-size:13px;color:var(--danger);margin:8px 0}.notice{padding:18px;border-radius:14px;background:var(--warn-soft);color:var(--warn);margin-block:18px}.danger{background:var(--danger-soft);color:var(--danger);border-color:var(--danger)}.good{background:var(--good-soft);color:var(--good)}.disease{background:var(--surface);padding:16px;border:1px solid var(--line);border-radius:16px;margin-block:16px}.disease h3{font-size:15px}.disease .question{margin:18px 0}.nav{display:flex;gap:10px;margin-top:32px}.booking-btn{display:flex;align-items:center;justify-content:center;text-decoration:none;margin-top:14px}.nav .primary{flex:1}.result-title{font-size:38px}.frequency{border-color:var(--accent);background:var(--accent-soft)}.big{font-size:54px;font-family:'IBM Plex Mono',monospace;letter-spacing:-.05em;line-height:1.3;color:var(--accent)}.reasons{padding-left:20px;font-size:14px}.bar-row{display:grid;grid-template-columns:43px minmax(0,1fr) 53px;gap:10px;align-items:center;margin:16px 0;font-size:13px}.track{height:15px;border-radius:5px;background:var(--soft);overflow:hidden}.bar{height:100%;background:var(--muted);border-radius:5px}.bar.selected{background:var(--accent)}.bar-row b{text-align:right;font-family:'IBM Plex Mono',monospace}.composition{display:grid;grid-template-columns:42px 1fr;gap:14px;padding-block:14px;border-bottom:1px solid var(--line);font-size:14px}.composition:last-child{border-bottom:0}.plan-line{padding-block:13px;border-bottom:1px solid var(--line)}.plan-line:last-child{border:0}.plan-line small{color:var(--accent);font-weight:600}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{background:var(--warn-soft);color:var(--warn);padding:7px 10px;border-radius:8px;font-size:13px}summary{min-height:48px;cursor:pointer;font-weight:600}table{width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed}th,td{text-align:left;vertical-align:top;padding:10px 5px;border-bottom:1px solid var(--line);overflow-wrap:anywhere}th{width:35%;color:var(--muted);font-weight:500}.consent{display:flex;align-items:flex-start;gap:10px;min-height:48px;font-weight:600;margin-block:15px}.consent input{width:20px;height:20px;flex:0 0 20px;accent-color:var(--accent);margin-top:4px}.consent-copy{font-size:12px;color:var(--muted);padding-left:30px}.footer{font-size:11px;color:var(--muted);margin-top:32px;text-align:center}.result-note{font-size:13px}.candidate{font-size:16px;color:var(--accent)}@media(prefers-reduced-motion:no-preference){button,.choice span{transition:background .15s,border-color .15s}.screen{animation:enter .22s ease-out}@keyframes enter{from{transform:translateY(5px)}to{transform:none}}}@media(max-width:380px){.card{padding:18px}.choice span{padding:10px 11px}.result-title{font-size:34px}}
+</style>
+<main class="wrap" id="voice-app">
+ <header><span class="brand">WONDERMOTION<br><span class="muted">원더모션 · 마산</span></span><span class="rec"><svg viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="5"/></svg>VOICE CHECK</span></header>
+ <section id="intro" class="screen">
+  <div class="eyebrow">YOUR VOICE, YOUR NEXT TRACK.</div><h1>내 목소리,<br>지금 어디쯤?</h1><p class="lead">잘하고 싶은 한 소절부터<br>나에게 맞는 수업 간격까지.</p><p class="muted">약 6분 · 결과 바로 확인</p>
+  <div class="card preview"><span class="tag">예시 · 실제 결과는 답변에 따라 달라져요</span><h3>후렴의 흔들림을,<br>다음 수업의 출발점으로.</h3><div class="wave" aria-hidden="true"><i style="--h:18%"></i><i style="--h:35%"></i><i style="--h:60%"></i><i style="--h:40%"></i><i style="--h:85%"></i><i style="--h:100%"></i><i style="--h:65%"></i><i style="--h:42%"></i><i style="--h:75%"></i><i style="--h:50%"></i><i style="--h:30%"></i><i style="--h:15%"></i></div><small>01 나의 수업 간격　02 피드백 기회 비교<br>03 첫 수업 플랜　04 목 관리 포인트</small></div>
+  <button class="primary wide" id="start" type="button">내 보이스 플랜 만들기 →</button><p class="privacy">답변은 이 휴대폰 화면에서만 계산돼요. 학원으로 자동 전송되지 않아요. 브라우저에 답변을 저장하지 않으며, 새로고침하면 사라져요.</p><small>지금 최고음을 내보거나 목을 시험하지 마세요. 평소 경험으로 답해 주세요. 의료 진단이나 치료를 대신하지 않아요.</small>
+ </section>
+ <section id="survey" hidden><nav aria-label="문진 진행"><ol class="notes" id="notes"></ol></nav><div id="steps"></div><div class="nav"><button type="button" id="back" class="secondary">이전</button><button type="button" id="next" class="primary">다음 →</button></div></section>
+ <section id="result" class="screen" hidden aria-label="보이스 플랜 결과">
+  <div class="eyebrow">높은 도 · YOUR VOICE PLAN</div><h1 id="result-name" class="result-title" tabindex="-1"></h1><p id="result-goal" class="lead"></p>
+  <div id="medical" class="card danger" hidden><h3>발성 연습보다 진료가 먼저예요</h3><p id="medical-text"></p><p>의료진이 허용하는 범위를 확인한 뒤 횟수·시간을 함께 정해요.</p></div>
+  <div id="frequency" class="card frequency"><div class="eyebrow">RECOMMENDED RHYTHM</div><p id="frequency-number" class="big"></p><p id="frequency-sub"></p><ul id="reasons" class="reasons"></ul><div id="alternative" class="notice" hidden>함께 비교해 보세요<br><strong>주 2회 ↔ 주 1회 + 연습실 이용</strong><small>연습실 이용 조건과 1회 시간은 상담에서 정해요.</small></div><p class="result-note">주 1회로도 시작할 수 있어요. 목표 분량·시기를 맞춰 드려요.</p></div>
+  <div id="feedback" class="card"><h3>선생님이 들어주는 기회</h3><p id="feedback-caption"></p><div id="bars"></div><small>횟수가 늘수록 수정할 기회가 많아져요. 주당 횟수 × 남은 주의 단순 비교이며, 실제 일정·휴일·출석에 따라 달라져요. 완성 속도를 보장하지 않아요.</small></div>
+  <div class="card" id="composition"><h3>같은 목표, 다른 수업 리듬</h3><p id="composition-note" class="muted" hidden>진료 확인 뒤 상담할 수 있는 일반 구성 예시예요.</p><div class="composition"><b>주 1회</b><span>레슨 + 집에서 할 과제</span></div><div class="composition"><b>주 2회</b><span>1회차 기술 익히기 →<br>2회차 곡에 적용·바로 수정</span></div><div class="composition"><b>주 3회</b><span>기술 → 적용 → 리허설<br>(실전처럼 한 곡 통으로)</span></div></div>
+  <div class="card"><div class="eyebrow">FIRST SESSION / TAKE 01</div><h2>첫 수업의 설계도</h2><div class="plan-line"><small>목표 구간</small><p id="plan-target"></p></div><div class="plan-line"><small>첫 수업에서 확인할 것</small><p id="plan-check"></p></div><div class="plan-line"><small>2주 뒤, 같은 조건으로</small><p id="plan-compare"></p></div></div>
+  <div class="card"><h3>확인할 관리 포인트</h3><div id="points" class="chips"></div><p id="points-note" class="muted"></p><small>답변에서 고른 상담 항목이에요. 건강 수준이나 진단을 뜻하지 않아요. 수분 제한 등 의료진 안내가 있으면 그 안내를 따라 주세요.</small></div>
+  <details class="card"><summary>선생님께 보여주세요 · 답변 요약</summary><h3>상담 핵심</h3><div id="summary-status" class="notice"></div><table><caption class="muted">이 화면에서만 보이는 전체 답변</caption><tbody id="summary-rows"></tbody></table></details>
+  <div id="share" class="card"><h3>결과 보내기</h3><p class="muted">동의한 요약을 복사한 뒤 카카오톡에서 <b>원더모션마산</b>을 찾아 붙여넣어 주세요. 복사만으로 전송되지는 않아요.</p><p class="consent-copy">수집·이용 주체: 원더모션<br>상담 카톡: 원더모션마산 · 문의·동의 철회: 010-5439-3331</p><label class="consent" for="B2"><input type="checkbox" id="B2">일반 개인정보 수집·이용 동의</label><p class="consent-copy">목적: 신청자 확인 및 수업 상담.<br>항목: 이름·별칭, 연령대, 목표, 목표일, 상담용 추천(건강정보 동의 여부에 따라 조정).<br>보유: 학원이 카톡으로 받은 날부터 90일 후 파기. 철회 또는 목적 달성 시 불필요한 정보는 지체 없이 파기.<br>거부할 수 있어요. 미동의 시 복사 기능을 이용할 수 없으며 화면 확인·현장 상담은 가능해요.</p><label class="consent" for="B3"><input type="checkbox" id="B3">건강정보(민감정보) 수집·이용 동의</label><p class="consent-copy">목적: 목 상태에 맞는 수업 강도 검토 및 진료 우선 상담.<br>항목: 관리 포인트, 질환별 진단 시기·치료·현재 상태, 증상·기간, 수술 이력·의료진 안내·위험 신호 및 이를 반영한 추천, 목표 메모에 적은 건강정보.<br>보유: 학원이 카톡으로 받은 날부터 90일 후 파기. 철회 또는 목적 달성 시 불필요한 정보는 지체 없이 파기.<br>거부할 수 있어요. 미동의 시 건강 항목·자유 메모·건강을 반영한 추천은 복사하지 않으며 일반 상담은 가능해요.</p><button type="button" id="copy" class="primary wide">동의한 요약 복사하기</button><p id="copy-status" role="status"></p><label for="copy-fallback" id="fallback-label" hidden>길게 눌러 복사해 주세요</label><textarea id="copy-fallback" class="text-input" rows="10" readonly hidden></textarea></div>
+  <div id="minor-share" class="notice" hidden>상담 때 보호자와 함께 이 화면을 보여주세요.</div><div id="booking" class="card" hidden><h3>바로 예약하기 <span class="muted">(선택)</span></h3><p class="muted">마음에 드셨다면 상담·첫 수업 날짜를 네이버 예약으로 바로 잡을 수 있어요. 예약하지 않아도 결과는 그대로 볼 수 있어요.</p><a id="booking-link" class="primary booking-btn" href="#" target="_blank" rel="noopener">네이버 예약으로 상담 잡기 →</a></div><div class="nav"><button type="button" id="edit" class="secondary">답변 수정</button><button type="button" id="restart" class="primary">처음부터 다시</button></div><p class="footer">WONDERMOTION · 작은 변화도, 같은 구간에서 듣다.</p>
+ </section>
+</main>
+<script>
+'use strict';
+const DISEASES=['성대결절','성대폴립','성대낭종','라인케부종','성대구증','후두육아종','성대 출혈','인후두 역류(LPR)·역류성 후두염 진단 이력','근긴장성 발성장애','성대마비','갑상선·목 수술 후 음성 변화 이력','기타·병명 모름'];
+const GOALS=[
+ ['고음 향상',['원하는 곡 후렴을 무리 없이 부르기','고음 연결이 끊기지 않기','높은 음에서도 가사 전달하기'],['후렴의 편한 키와 힘이 들어가는 모음을 함께 찾아요.','음이 바뀌는 지점에서 소리 연결과 힘의 변화를 들어요.','높은 음의 모음·자음과 가사 전달을 짧게 나눠 들어요.'],'편한 키에서 짧은 후렴을 듣고 우선 구간을 정해요.'],
+ ['축가·행사 준비',['한 곡 끝까지 안정적으로 부르기','반주에 정확히 들어가기','마이크·무대 동선까지 리허설하기'],['곡의 키·길이와 숨 쉴 위치를 확인해요.','반주 시작 신호와 첫 소절 진입을 맞춰 봐요.','마이크 거리·시선·입장부터 한 흐름으로 점검해요.'],'행사 순서와 곡 길이를 확인하고 먼저 다룰 한 소절을 정해요.'],
+ ['오디션·입시',['지정곡 한 곡 완성','자유곡 선택·해석','실전처럼 연속 수행'],['지정곡 요구 조건과 흔들리는 구간을 확인해요.','편한 음역과 가사 해석을 듣고 곡 후보를 좁혀요.','시작 자세·곡 전환·마지막 소절까지 흐름을 확인해요.'],'전형의 곡·시간 조건을 확인하고 우선 과제를 정해요.'],
+ ['취미·노래방 실력',['음정·박자 안정','좋아하는 한 곡 완성','녹음했을 때 표현 개선'],['짧은 구간의 기준 음과 박자 진입을 함께 들어요.','좋아하는 곡의 편한 키와 먼저 완성할 구간을 정해요.','가사 강세·끝음·소리 크기를 녹음으로 함께 들어요.'],'좋아하는 곡 한 소절을 듣고 가장 바꾸고 싶은 부분을 정해요.'],
+ ['발성 교정·목 건강',['힘주는 습관 알아차리기','편안한 음역에서 소리 연결','일상 목 사용·쉬는 습관 정리'],['무리 없는 소리에서 힘이 들어가는 순간을 함께 살펴요.','편안한 높이의 짧은 소리 연결과 쉬는 간격을 확인해요.','하루 말 사용 시간과 쉴 수 있는 틈을 함께 정리해요.'],'일상 목 사용과 편안한 범위를 먼저 이야기해요. 치료를 대신하지 않아요.'],
+ ['말하기·발표 목소리',['긴 문장 전달','작은 목소리의 전달력','발표·면접 실전 연습'],['문장 의미가 이어지도록 숨 쉴 자리와 속도를 확인해요.','편안한 크기로 자음·시선·전달 거리를 점검해요.','첫 문장·핵심어·마무리까지 발표 흐름을 확인해요.'],'사용할 문장과 듣는 사람·공간을 확인해 우선 과제를 정해요.']
+];
+const SCALE=['1 아직 시작하기 어려워요','2 도움받으면 일부 가능해요','3 혼자 가능하지만 들쭉날쭉해요','4 대부분 안정적이에요','5 실전에서도 안정적이에요'];
+const Q=[];
+function q(id,step,title,options,type='single',optional=false,help=''){const x={id,step,title,options:options?options.split('|'):[],type,optional,help};Q.push(x);return x;}
+q('B1',1,'만 14세 이상인가요?','만 14세 이상입니다|만 14세 미만입니다');
+q('P1',1,'어떻게 불러 드릴까요?',null,'text',false,'이름 또는 별칭, 2~30자.');
+q('P2',1,'상담 안내를 받을 휴대폰 번호를 알려 주세요.',null,'tel',false,'이 화면에서만 확인해요. 만 14세 미만은 보호자 번호를 적어 주세요.');
+q('P3',1,'성별을 알려 주실 수 있나요?','여성|남성|직접 표현하고 싶어요|응답하지 않을게요','single',true);
+q('P4',1,'만 나이 기준 연령대를 골라 주세요.','10세 미만|10~13세|14~16세|17~19세|20대|30대|40대|50대|60대 이상');
+q('P5',1,'평소 하시는 일은 무엇인가요?','학생|교사·강사|상담·콜센터|영업·판매·서비스|사무·연구|공연·방송·콘텐츠|그 밖의 일|현재 정해진 일 없음','single',true);
+q('P6',1,'하루에 말하거나 노래하는 시간은요?','1시간 미만|1~3시간 미만|3~5시간 미만|5시간 이상|잘 모르겠어요');
+q('P7',1,'원더모션을 어떻게 알게 되셨나요?','네이버 검색·지도|인스타그램|유튜브|지인 추천|지나가다 간판|기타|기억나지 않아요','single',true);
+q('P8',1,'요즘 목소리가 성장하면서 달라지는 느낌이 있나요?','없어요|음높이·소리가 달라지는 중이에요|잘 모르겠어요|응답하지 않을게요');
+q('E1',2,'보컬을 배워 본 경험이 있나요?','처음이에요|예전에 배우다가 그만뒀어요|현재 배우고 있어요|레슨 없이 독학·합창·밴드 경험만 있어요');
+q('E2',2,'배운 기간을 모두 합치면 어느 정도인가요?','1개월 미만|1~3개월 미만|3~6개월 미만|6~12개월 미만|1년 이상|기억나지 않아요');
+q('E3',2,'어떤 방식으로 배우셨나요?','학원 대면 레슨|개인 대면 레슨|실시간 온라인 레슨|온라인 강의·유튜브 독학|합창·밴드|기타','multi');
+q('E4',2,'그만두었거나 쉬게 된 가장 큰 이유는요?','시간·거리|비용|변화가 잘 느껴지지 않음|설명이 이해되지 않음|선생님·방식이 맞지 않음|목이 불편해짐|목표 달성|기타|그만둔 적 없음');
+q('E5',2,'어떤 수업 방식을 원하시나요? 최대 2개 골라 주세요.','내 소리가 왜 달라지는지 이해하기|집에서 할 연습을 구체적으로 받기|변화 전후를 비교하기|원하는 곡에 적용하기|내 속도에 맞는 설명|편안하게 질문하기|특별히 없어요','multi');
+q('H1',3,'목소리 관련 진단·치료 이력이 있나요?','해당 없음|진단·치료받은 적 있어요|진단은 없지만 확인하고 싶어요');
+q('H2',3,'의료진에게 들은 항목을 모두 골라 주세요.',DISEASES.join('|'),'multi',false,'의료진에게 들은 병명만 골라 주세요. 진단받지 않았다면 다음 증상 문항에서 알려 주세요.');
+DISEASES.forEach((name,i)=>{const d='D'+String(i+1).padStart(2,'0');q('H3_'+d,3,'가장 최근에 진단받은 때는 언제인가요?','최근 6개월 이내|6개월 초과~1년 이내|1년 초과~3년 이내|3년 초과|진단받았으나 시기 모름');q('H4_'+d,3,'받은 치료가 있나요?','약물|음성치료|수술·시술|경과 관찰·생활 안내만|받은 치료 없음|잘 모르겠어요','multi');q('H5_'+d,3,'현재 상태는 어떤가요?','치료 종료·호전 안내 받음|치료·추적 관찰 중|다시 불편하지만 재발 여부는 확인 안 함|의료진에게 재발 진단 받음|잘 모르겠어요');});
+q('H6',3,'최근 6개월 안에 목소리에 영향을 줄 수 있는 수술·시술을 받으셨나요?','아니요|성대·후두 수술·시술|갑상선·목 수술|기타 수술 후 목소리가 달라짐|시기·관련 여부가 불확실해요');
+q('H7',4,'최근 2주 동안 있었던 불편을 모두 골라 주세요.','쉰 목소리|말하거나 노래하면 목이 쉽게 피로해요|말하거나 노래할 때 통증이 있어요|목 이물감·잦은 헛기침|고음에서 갈라짐·뒤집힘|이전보다 음역 감소|아침에 목 잠김|노래할 때 숨 참·호흡 부족|오래 말하면 목소리가 작아짐|해당 없음','multi',false,'노래할 때 숨이 부족한 것과 가만히 있어도 숨쉬기 어려운 것은 달라요. 후자는 아래 위험 신호에 표시해 주세요.');
+q('H8',4,'현재 불편이 이어지거나 반복된 기간은요?','현재 불편 없음|1주 미만|1~2주 미만|2~3주 미만|3주 이상|잘 모르겠어요');
+q('H9',4,'지금 아래 위험 신호에 해당하는 것이 있나요?','지금 가만히 있어도 숨쉬기 어려워요|피가 섞여 나와요|삼키기 어렵거나 말하기·삼키기에 통증이 있어요|목에 덩이가 만져져요|크게 소리 낸 뒤 갑자기 목소리가 없어지거나 심하게 변했어요|목소리가 거의 안 나오는 상태가 며칠째예요|해당 없음','multi');
+q('H10',4,'노래·발성 연습에 대해 의료진에게 받은 안내가 있나요?','제한 없이 가능하다고 안내받았어요|강도·시간 제한을 안내받았어요|쉬거나 연습을 중단하라고 안내받았어요|확인받지 않았어요·기억나지 않아요');
+q('L1',5,'흡연·전자담배 사용은 어떤가요?','현재 사용하지 않아요|일반 담배 사용|전자담배 사용|둘 다 사용|응답하지 않을게요');
+q('L2',5,'하루에 마시는 물은 어느 정도인가요?','500mL 미만|500mL~1L 미만|1L~1.5L 미만|1.5L 이상|잘 모르겠어요|의료진에게 수분 섭취 제한을 안내받았어요');
+q('L3',5,'보통 하루에 몇 시간 주무시나요?','5시간 미만|5~7시간 미만|7시간 이상|일정하지 않아 모르겠어요');
+q('L5',5,'최근 2주의 야식·역류 경험은 어떤가요?','취침 3시간 이내 식사와 역류 느낌 모두 거의 없음|취침 3시간 이내 식사가 주 3회 이상|신물·속쓰림이 주 2회 이상|앞의 두 가지 모두|잘 모르겠어요');
+q('G1',6,'이번에 가장 먼저 이루고 싶은 목적은요?',GOALS.map(g=>g[0]).join('|'));
+q('G2',6,'가장 먼저 확인하고 싶은 변화는요?','');
+q('G2a',6,'딱 한 부분이 좋아진다면 어디인가요? 곡명·후렴·가사 한 줄로 적어 주세요.',null,'text',true,'최대 100자. 지금 노래해서 확인하지 않아도 괜찮아요.');
+q('G3',6,'방금 고른 목표를 지금 얼마나 해낼 수 있나요?',SCALE.join('|'));
+q('G4',6,'이번 과정이 끝날 때 어느 정도까지 원하시나요?',SCALE.join('|'));
+q('G5',6,'목표 날짜(축가·오디션·발표 등)가 있나요?','있어요|아직 없어요');
+q('G5_date',6,'목표 날짜를 골라 주세요.',null,'date');
+q('R1',7,'확보할 수 있는 개인 연습 시간은 주당 어느 정도인가요?','0~19분|20~59분|60~119분|120분 이상|아직 모르겠어요', 'single',false,'쉬는 시간을 포함한 확보 가능 시간이에요. 연속 발성 시간이나 연습량 처방이 아니에요.');
+q('R2',7,'편하게 소리 낼 연습 장소가 있나요?','주 3일 이상 이용 가능|주 1~2일 이용 가능|거의 없어요|아직 모르겠어요');
+q('R3',7,'스스로 바꾸고 싶은 발성 습관이 얼마나 이어졌나요?','특별히 없어요|3개월 미만|3개월~1년 미만|1년 이상|잘 모르겠어요');
+const STEP_TITLES=['','반가워요. 당신을 알려 주세요.','배움의 경험, 다음의 기대.','목의 이력부터 살펴볼게요.','지금, 목은 어떤가요?','목소리가 머무는 하루.','딱 한 소절, 달라진다면.','이어갈 수 있는 리듬 찾기.'];
+const STEP_HELP=['','연령 확인 뒤 기본 정보를 입력해 주세요.','처음 배우셔도 좋아요. 편한 방식을 찾아요.','의료진에게 들은 이력만 알려 주세요.','최근 경험으로 답해 주세요. 목을 시험하지 마세요.','잘잘못을 가리는 질문이 아니에요.','지금의 체감과 원하는 변화를 함께 골라 주세요.','수업 횟수와 혼자 연습할 여건을 함께 살펴요.'];
+const $=id=>document.getElementById(id);
+let answers={},step=0,lastResult=null;
+function el(tag,text,cls){const x=document.createElement(tag);if(text!==undefined)x.textContent=text;if(cls)x.className=cls;return x;}
+function todayISO(){const d=new Date();return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');}
+function dayNumber(s){if(!/^\d{4}-\d{2}-\d{2}$/.test(s||''))return NaN;const [y,m,d]=s.split('-').map(Number),t=Date.UTC(y,m-1,d),v=new Date(t);return v.getUTCFullYear()===y&&v.getUTCMonth()===m-1&&v.getUTCDate()===d?t/86400000:NaN;}
+function has(a,id,n){return Array.isArray(a[id])&&a[id].includes(n);}
+function visible(x,a){const id=x.id;if(id.startsWith('P'))return a.B1!==undefined;if(['E2','E3'].includes(id))return a.E1!==undefined&&a.E1!==0;if(id==='E4')return a.E1===1||a.E1===3;if(id==='H2')return a.H1===1;if(/^H[345]_/.test(id))return a.H1===1&&has(a,'H2',Number(id.slice(-2))-1);if(id==='H8')return (a.H7||[]).some(n=>n!==9);if(id==='H10')return a.H1!==undefined&&a.H6!==undefined&&a.H7!==undefined&&a.H9!==undefined&&!(a.H1===0&&a.H6===0&&has(a,'H7',9)&&has(a,'H9',6));if(id==='G2')return a.G1!==undefined;if(id==='G5_date')return a.G5===0;return true;}
+function normalize(a){for(const x of Q){if(!visible(x,a))delete a[x.id];}if(has(a,'H7',9))a.H8=0;else if((a.H7||[]).length&&a.H8===0)delete a.H8;}
+function calculate(a,today){
+ const states=(a.H2||[]).map(n=>a['H5_D'+String(n+1).padStart(2,'0')]);
+ const symptoms=(a.H7||[]).filter(n=>n!==9),risk=(a.H9||[]).filter(n=>n!==6);
+ const points=[];if(symptoms.length)points.push(a.H8>=2&&a.H8<=4?'지속 증상':'현재 목 불편');if((a.H2||[]).length)points.push('치료 이력');if(a.P6===3)points.push('하루 말 사용량 많음');if([1,2,3].includes(a.L1))points.push('흡연');if([0,1].includes(a.L2))points.push('수분 부족');if([0,1].includes(a.L3))points.push('수면 부족');if([1,2,3].includes(a.L5))points.push('역류 습관');if(a.L2===5)points.push('수분 제한 안내');if(a.P8===1)points.push('목소리 변화 확인');if(states.includes(4)||a.H8===5)points.push('상태·기간 추가 확인');
+ const hold=[];if(risk.length)hold.push('위험 신호 응답');if(a.H6!==undefined&&a.H6!==0)hold.push('최근 수술·시술 또는 시기 불확실');if(states.some(n=>[1,2,3].includes(n)))hold.push('치료·추적 관찰 또는 다시 생긴 불편');if([1,2].includes(a.H10))hold.push('의료진의 제한·중단 안내');if(has(a,'H7',0)&&a.H8===4)hold.push('쉰 목소리 3주 이상');if(has(a,'H7',2)&&[2,3,4].includes(a.H8))hold.push('통증 1주 이상');
+ const days=a.G5===0?dayNumber(a.G5_date)-dayNumber(today):null;
+ const invalidDate=days!==null&&(!Number.isFinite(days)||days<0);
+ const weeks=days===null?4:Math.ceil(Math.max(0,days)/7),gap=Math.max(0,(a.G4??0)-(a.G3??0));
+ const base={points,hold,gap,weeks,urgent:has(a,'H9',0),state:hold.length?'진료 확인 먼저':points.length?'관리 필요':'여유'};
+ if(hold.length||invalidDate)return {...base,f:null,reasons:[],counts:null,alternative:false,invalidDate};
+ let f=gap<=1?1:2;const reasons=[];const near=days!==null&&days<=56;
+ if(near){f=Math.max(f,2);if(gap>=3)f=3;reasons.push('목표일이 8주 이내라, 피드백 간격을 좁혀 봐요.');}
+ if(gap>=2)reasons.push('원하는 변화까지 단계를 나눠, 익힌 것을 곡에 적용해 봐요.');
+ const frequent=states.includes(0)||a.P6===3||points.length>=3;
+ if(frequent){f=Math.max(f,2);reasons.push('한 번에 길게보다 짧게 자주가 목에 편해요');}
+ const alternative=a.R1===0||a.R2===2;
+ if(alternative){f=2;reasons.push('혼자 연습할 시간·장소를 수업과 연습실로 보완해 봐요.');}
+ if(a.P4<=1||(a.P4<=3&&a.G1!==2))f=Math.min(f,2);
+ if(!reasons.length)reasons.push('한 가지 변화를 익히고, 수업 사이 스스로 재현해 봐요.');
+ return {...base,f,reasons:reasons.slice(0,2),counts:[weeks,weeks*2,weeks*3],alternative,frequent,invalidDate:false};
+}
+function choiceValue(x,n){return x.options[n];}
+function makeQuestion(x){
+ const box=el('fieldset',undefined,'question');box.id='q-'+x.id;
+ const legend=el('legend');legend.append(document.createTextNode(x.title+(x.optional?' (선택)':'')));box.append(legend);
+ if(x.help)box.append(el('small',x.help));
+ if(['text','tel','date'].includes(x.type)){
+  const input=el('input',undefined,'text-input');input.type=x.type;input.id=x.id;input.autocomplete='off';input.setAttribute('aria-label',x.title);input.setAttribute('aria-describedby','err-'+x.id);if(x.type==='text')input.maxLength=x.id==='P1'?30:100;if(x.type==='tel'){input.maxLength=15;input.inputMode='tel';}if(x.type==='date')input.min=todayISO();input.addEventListener('input',()=>{answers[x.id]=input.value;clearError(x.id);});box.append(input);
+ }else{
+  const opts=el('div',undefined,'options');x.options.forEach((label,n)=>{const lab=el('label',undefined,'choice');const input=el('input');input.type=x.type==='multi'?'checkbox':'radio';input.name=x.id;input.id=x.id+'-'+n;input.value=String(n);input.setAttribute('aria-describedby','err-'+x.id);lab.htmlFor=input.id;input.addEventListener('change',()=>changeChoice(x,n,input));lab.append(input,el('span',label));opts.append(lab);});box.append(opts);
+ }
+ const err=el('p','','error');err.id='err-'+x.id;err.hidden=true;err.setAttribute('role','alert');box.append(err);return box;
+}
+function clearError(id){$('err-'+id).hidden=true;document.querySelectorAll('#q-'+id+' input').forEach(i=>i.removeAttribute('aria-invalid'));}
+function setError(id,message){$('err-'+id).textContent=message;$('err-'+id).hidden=false;document.querySelectorAll('#q-'+id+' input').forEach(i=>i.setAttribute('aria-invalid','true'));}
+function changeChoice(x,n,input){
+ clearError(x.id);
+ if(x.type==='multi'){
+  let vals=[...(answers[x.id]||[])];const exclusive=x.id==='H7'?[9]:x.id==='H9'?[6]:x.id==='E5'?[6]:x.id.startsWith('H4_')?[4,5]:[];
+  if(input.checked){vals=exclusive.includes(n)?[n]:[...vals.filter(v=>!exclusive.includes(v)),n];if(x.id==='E5'&&vals.length>2){input.checked=false;setError(x.id,'가장 원하는 두 가지만 골라 주세요.');return;}}else vals=vals.filter(v=>v!==n);
+  answers[x.id]=vals;
+ }else answers[x.id]=n;
+ if(x.id==='G1'){delete answers.G2;const g=Q.find(z=>z.id==='G2');g.options=[...GOALS[n][1],'아직 모르겠어요·상담에서 정할게요'];$('q-G2').replaceWith(makeQuestion(g));}
+ if(x.id==='B1')delete answers.P4;
+ normalize(answers);sync();
+}
+function sync(){
+ for(const x of Q){const box=$('q-'+x.id);box.hidden=!visible(x,answers);if(box.hidden)clearError(x.id);const value=answers[x.id];if(['text','tel','date'].includes(x.type)){if(box.hidden)$(x.id).value='';}else box.querySelectorAll('input').forEach(i=>{i.checked=x.type==='multi'?(value||[]).includes(Number(i.value)):value===Number(i.value);if(x.id==='H8'&&Number(i.value)===0)i.disabled=true;});}
+ DISEASES.forEach((_,n)=>{$('disease-D'+String(n+1).padStart(2,'0')).hidden=!(answers.H1===1&&has(answers,'H2',n));});
+ $('guardian').hidden=answers.B1!==1;
+ const r=(answers.H9||[]).some(n=>n!==6);$('risk-live').hidden=!r;$('risk-live').textContent=has(answers,'H9',0)?'설문보다 즉시 의료 도움이 먼저예요. 지금 숨쉬기 어렵다면 119 등 응급 도움을 요청하고 주변 사람에게 알려 주세요.':r?'발성 연습보다 진료가 먼저예요. 무리하게 소리를 내지 말고 신속히 진료를 받아 주세요. 설문은 계속할 수 있지만 횟수 추천은 보류해요.':'';
+}
+function mount(){
+ const notes=['도','레','미','파','솔','라','시'];notes.forEach((n,i)=>{const li=el('li',n);li.id='note-'+(i+1);$('notes').append(li);});
+ for(let s=1;s<=7;s++){
+  const sec=el('section',undefined,'screen');sec.id='step-'+s;sec.hidden=true;const top=el('div',undefined,'step-top');top.append(el('span',String(s).padStart(2,'0')+' / 07 · '+notes[s-1],'eyebrow'));const h=el('h2',STEP_TITLES[s]);h.tabIndex=-1;h.id='heading-'+s;top.append(h,el('p',STEP_HELP[s],'muted'));sec.append(top);
+  Q.filter(x=>x.step===s).forEach(x=>{
+   if(/^H[345]_/.test(x.id)){const d=x.id.slice(3);let card=sec.querySelector('#disease-'+d);if(!card){card=el('div',undefined,'disease');card.id='disease-'+d;card.append(el('h3',DISEASES[Number(d.slice(1))-1]));sec.append(card);}card.append(makeQuestion(x));}
+   else sec.append(makeQuestion(x));
+   if(x.id==='B1'){const notice=el('p','보호자와 함께 작성해 주세요. 결과는 상담 때 함께 보여주실 수 있어요.','notice');notice.id='guardian';notice.hidden=true;sec.append(notice);}
+   if(x.id==='H9'){const notice=el('div','','notice danger');notice.id='risk-live';notice.hidden=true;notice.setAttribute('role','alert');sec.append(notice);}
+  });$('steps').append(sec);
+ }sync();
+}
+function showStep(s){step=s;$('intro').hidden=s!==0;$('survey').hidden=s===0;$('result').hidden=true;for(let i=1;i<=7;i++){ $('step-'+i).hidden=i!==s;$('note-'+i).className=i===s?'active':i<s?'done':'';if(i===s)$('note-'+i).setAttribute('aria-current','step');else $('note-'+i).removeAttribute('aria-current');}$('next').textContent=s===7?'내 보이스 플랜 보기 →':'다음 →';sync();if(s) $('heading-'+s).focus();else $('start').focus();}
+function validate(s){let first=null;for(const x of Q.filter(x=>x.step===s&&visible(x,answers))){clearError(x.id);const v=answers[x.id];let error='';if(!x.optional&&(v===undefined||v===''||(Array.isArray(v)&&!v.length)))error='이 항목을 골라 주세요. 모르겠어요도 괜찮아요.';if(x.id==='P1'&&(!v||v.trim().length<2))error='이름이나 별칭을 2자 이상 적어 주세요.';if(x.id==='P2'&&!/^01[016789]\d{7,8}$/.test((v||'').replace(/[\s-]/g,'')))error='휴대폰 번호 10~11자리를 확인해 주세요.';if(x.id==='P4'&&v!==undefined&&((answers.B1===1)!==(v<=1)))error='앞에서 고른 만 14세 이상·미만과 연령대를 맞춰 주세요.';if(x.id==='G5_date'&&(!Number.isFinite(dayNumber(v))||dayNumber(v)<dayNumber(todayISO())))error='오늘 또는 이후 날짜로 수정해 주세요.';if(error){setError(x.id,error);if(!first)first=x.id;}}
+ if(first){$('q-'+first).querySelector('input')?.focus();return false;}return true;
+}
+function answerLabel(x,a=answers){const v=a[x.id];if(v===undefined||v===''||(Array.isArray(v)&&!v.length))return '미응답';return x.options.length?(Array.isArray(v)?v.map(n=>choiceValue(x,n)).join(' / '):x.options[v]):String(v);}
+function fillResult(){
+ lastResult=calculate(answers,todayISO());const r=lastResult,g=GOALS[answers.G1],target=answers.G2a?.trim()||g[1][answers.G2]||'상담에서 목표 구간 정하기';
+ $('result-name').textContent=answers.P1.trim()+'님의\n보이스 플랜';$('result-goal').textContent=g[0]+' · '+(g[1][answers.G2]||'상담에서 정할게요');
+ $('medical').hidden=!r.hold.length;$('medical-text').textContent=(r.urgent?'지금 숨쉬기 어렵다면 119 등 즉시 의료 도움을 요청하고 주변 사람에게 알려 주세요. ':r.hold.length?'무리한 발성보다 이비인후과 확인을 먼저 권해 드려요. ':'')+r.hold.join(' · ');
+ $('frequency').hidden=r.f===null;$('feedback').hidden=r.f===null;$('composition-note').hidden=r.f!==null;
+ $('frequency-number').textContent=r.f===null?'':'주 '+r.f+'회';$('frequency-sub').textContent=r.f===3?'실전 준비를 나눠 보는 후보예요. 출석·회복 여건을 상담에서 확인해요.':r.f===2?'기술을 익히고, 곡에 적용해 바로 수정해요.':'한 가지 변화를 익히고, 집에서 이어가요.';
+ $('reasons').replaceChildren(...r.reasons.map(t=>el('li',t)));$('alternative').hidden=!r.alternative;
+ $('bars').replaceChildren();if(r.counts){$('feedback-caption').textContent=(answers.G5===0?'목표일까지 '+r.weeks+'주.':'첫 4주 동안.')+' 주 1회면 선생님 피드백 '+r.counts[0]+'번, 주 2회면 '+r.counts[1]+'번이에요.';r.counts.forEach((n,i)=>{const row=el('div',undefined,'bar-row');const track=el('div',undefined,'track'),bar=el('div',undefined,'bar'+(r.f===i+1?' selected':''));bar.style.width=(r.weeks===0?0:(i+1)/3*100)+'%';track.append(bar);row.append(el('span','주 '+(i+1)+'회'),track,el('b',n+'회'));if(r.f===i+1)row.setAttribute('aria-label','추천 주 '+(i+1)+'회, 피드백 '+n+'회');$('bars').append(row);});}
+ $('plan-target').textContent=target;$('plan-check').textContent=r.f===null?'의료진 안내와 허용 범위를 먼저 확인해요. 이후 '+(g[2][answers.G2]||g[3]):g[2][answers.G2]||g[3];$('plan-compare').textContent=(r.f===null?'의료진이 허용한 뒤 수업을 시작한 날부터 ':'')+(answers.G1===5?'2주 뒤, 같은 문장·같은 높이·같은 구간을 녹음해 비교해요. ':'2주 뒤, 같은 곡·같은 키·같은 구간을 녹음해 비교해요. ')+(['음정·박자','곡의 흐름·진입','완주 흐름·표현','음정·박자·표현','편안함·힘주는 순간','문장 전달·속도'][answers.G1])+' 중 하나와 불편·피로를 함께 살펴요.';
+ $('points').replaceChildren(...r.points.map(t=>el('span',t,'chip')));$('points-note').textContent=r.points.length?'함께 살펴볼 항목부터 하나씩 정리해요.':'답변에서 두드러진 관리 포인트는 없어요. 불편이 생기면 강도를 먼저 조절해요.';
+ $('summary-status').replaceChildren(...['추천: '+recommendation(r),'목표: '+goalText(answers)+' / '+stageText(answers)+' / 목표일: '+deadlineText(answers,r),'주의할 점: '+(r.points.join(', ')||'두드러진 관리 포인트 없음')+' / '+(r.hold.length?'진료 확인 먼저 — '+r.hold.join(', '):'진료 우선 신호 응답 없음')].map(t=>el('p',t)));
+ $('summary-rows').replaceChildren();Q.filter(x=>visible(x,answers)||(x.id==='H8'&&answers.H8===0)).forEach(x=>{const tr=el('tr');tr.append(el('th',shortLabel(x)),el('td',answerLabel(x)));$('summary-rows').append(tr);});
+ $('share').hidden=answers.B1===1;$('minor-share').hidden=answers.B1!==1;resetConsent();$('survey').hidden=true;$('intro').hidden=true;$('result').hidden=false;$('result-name').focus();
+}
+function resetConsent(){$('B2').checked=false;$('B3').checked=false;clearCopy();}
+function clearCopy(){$('copy-fallback').value='';$('copy-fallback').hidden=true;$('fallback-label').hidden=true;$('copy-status').textContent='';}
+const SHORT_LABELS={B1:'연령 확인',P1:'이름',P2:'연락처',P3:'성별',P4:'연령대',P5:'직업',P6:'하루 말 사용량',P7:'알게 된 경로',P8:'목소리 변화',E1:'수강 경험',E2:'수강 기간',E3:'수강 방식',E4:'중단 이유',E5:'원하는 수업 방식',H1:'진단 이력',H2:'진단명',H6:'최근 수술',H7:'최근 증상',H8:'증상 기간',H9:'위험 신호',H10:'의료진 안내',L1:'흡연',L2:'물',L3:'수면',L5:'야식·역류',G1:'목표',G2:'세부 목표',G2a:'목표 구간',G3:'현재 단계',G4:'원하는 단계',G5:'목표일 여부',G5_date:'목표일',R1:'주당 연습 시간',R2:'연습 장소',R3:'발성 습관'};
+function shortLabel(x){const m=/^H([345])_D(\d+)$/.exec(x.id);return m?DISEASES[Number(m[2])-1]+' · '+({'3':'진단 시기','4':'치료','5':'현재 상태'}[m[1]]):SHORT_LABELS[x.id];}
+function valueText(id,a){return answerLabel(Q.find(x=>x.id===id),a);}
+function goalText(a,health=true){const g=GOALS[a.G1];return (!health&&a.G1===4?'편안한 발성 배우기':g[0])+' · '+(g[1][a.G2]||'상담에서 정하기')+(health&&a.G2a?.trim()?' · ('+a.G2a.trim()+')':'');}
+function stageText(a){return (a.G3+1)+' → '+(a.G4+1);}
+function deadlineText(a,r){return a.G5===0?a.G5_date+' (약 '+r.weeks+'주 남음)':'정하지 않음';}
+function recommendation(r){return r.f===null?(r.hold.length?'진료 확인 먼저 — '+r.hold.join(', '):'목표일 확인 후 결정'):'주 '+r.f+'회 — '+r.reasons.map(s=>String(s).replace(/\.\s*$/,'')).join(' · ');}
+function copyText(a,r,health){
+ const lines=['[원더모션 보이스 체크]',
+ '이름: '+a.P1.trim()+' / 연령대: '+valueText('P4',a)+' / 수강 경험: '+valueText('E1',a)+' / 원하는 수업 방식: '+valueText('E5',a),
+ '목표: '+goalText(a,health),'현재 단계 → 원하는 단계: '+stageText(a),'목표일: '+deadlineText(a,r),
+ '추천: '+(health?recommendation(r):'상담에서 함께 결정'),
+ '연습 여건: '+valueText('R1',a)+' / '+valueText('R2',a),
+ '관리 포인트: '+(health?(r.points.join(', ')||'응답상 두드러진 항목 없음'):'건강정보 미포함')];
+ if(health){const diagnoses=(a.H2||[]).map(n=>{const d='D'+String(n+1).padStart(2,'0');return DISEASES[n]+'('+['H3_','H4_','H5_'].map(prefix=>valueText(prefix+d,a)).join('·')+')';});
+ lines.push('진단 이력: '+(diagnoses.join(', ')||valueText('H1',a))+' / 최근 수술: '+valueText('H6',a)+' / 증상: '+valueText('H7',a)+'('+valueText('H8',a)+') / 위험 신호: '+valueText('H9',a)+' / 의료진 안내: '+(visible(Q.find(x=>x.id==='H10'),a)?valueText('H10',a):'해당 없음'));}
+ lines.push('동의: 일반 동의 · 건강정보 '+(health?'동의':'미동의')+' · 문안 v2 · 학원 수신일로부터 90일 보유');return lines.join('\n');
+}
+
+mount();
+$('start').addEventListener('click',()=>showStep(1));$('back').addEventListener('click',()=>showStep(Math.max(0,step-1)));$('next').addEventListener('click',()=>{if(!validate(step))return;if(step<7)showStep(step+1);else{for(let s=1;s<=7;s++){if(!validate(s)){showStep(s);validate(s);return;}}fillResult();}});
+$('edit').addEventListener('click',()=>{resetConsent();showStep(7);});$('restart').addEventListener('click',()=>{answers={};lastResult=null;document.querySelectorAll('#steps input').forEach(i=>{i.value=['radio','checkbox'].includes(i.type)?i.value:'';i.checked=false;});Q.forEach(x=>clearError(x.id));resetConsent();$('summary-rows').replaceChildren();$('result-name').textContent='';$('plan-target').textContent='';showStep(0);});
+['B2','B3'].forEach(id=>$(id).addEventListener('change',clearCopy));
+$('copy').addEventListener('click',async()=>{clearCopy();if(answers.B1===1)return;if(!$('B2').checked){$('copy-status').textContent='복사하려면 일반 개인정보 수집·이용 동의를 확인해 주세요.';$('B2').focus();return;}const text=copyText(answers,lastResult,$('B3').checked);try{await navigator.clipboard.writeText(text);$('copy-status').textContent='복사했어요. 카카오톡 원더모션마산에 붙여넣어 주세요.';}catch{if(!$('B2').checked||answers.B1===1)return;$('copy-fallback').value=copyText(answers,lastResult,$('B3').checked);$('copy-fallback').hidden=false;$('fallback-label').hidden=false;$('copy-status').textContent='길게 눌러 복사해 주세요';$('copy-fallback').focus();$('copy-fallback').select();$('copy-fallback').setSelectionRange(0,$('copy-fallback').value.length);}});
+</script>
+</body></html>
